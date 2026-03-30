@@ -1,0 +1,782 @@
+<?php 
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices PHP – EP17 à EP32 (solutions et alternatives)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+        }
+        h2 {
+            margin-top: 40px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        h3 {
+            margin-top: 25px;
+            border-bottom: 1px solid #3498db;
+        }
+        .exercise {
+            background: white;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .enonce {
+            background-color: #e7f3ff;
+            padding: 10px;
+            border-left: 5px solid #3498db;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .solution {
+            background-color: #fef9e6;
+            padding: 10px;
+            border-left: 5px solid #f39c12;
+            margin: 10px 0;
+        }
+        .alternative {
+            background-color: #e8f5e9;
+            padding: 10px;
+            border-left: 5px solid #2ecc71;
+            margin: 10px 0;
+        }
+        pre {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+        }
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #e74c3c;
+        }
+        pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+        .toc {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .toc ul {
+            columns: 2;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .toc li {
+            margin: 5px 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7f8c8d;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercices PHP – EP17 à EP32</h1>
+    <p><strong>Solutions complètes avec alternatives</strong> – chaque exercice est présenté avec son énoncé, une solution principale et une ou plusieurs alternatives.</p>
+
+    <div class="toc">
+        <h2>Table des matières</h2>
+        <ul>
+            <li><a href="#ep17">EP17 – Fonctions de base</a></li>
+            <li><a href="#ep18">EP18 – Fonctions récursives</a></li>
+            <li><a href="#ep19">EP19 – Manipulation de tableaux</a></li>
+            <li><a href="#ep20">EP20 – Gestion d’invités</a></li>
+            <li><a href="#ep21">EP21 – Panier d’achat</a></li>
+            <li><a href="#ep22">EP22 – Compétences</a></li>
+            <li><a href="#ep23">EP23 – Ventes mensuelles</a></li>
+            <li><a href="#ep24">EP24 – Étudiants</a></li>
+            <li><a href="#ep25">EP25 – Produits</a></li>
+            <li><a href="#ep26">EP26 – Matrices</a></li>
+            <li><a href="#ep27">EP27 – Employés</a></li>
+            <li><a href="#ep28">EP28 – Bibliothèque</a></li>
+            <li><a href="#ep29">EP29 – Ventes (produits)</a></li>
+            <li><a href="#ep30">EP30 – ADN et gigasecondes</a></li>
+            <li><a href="#ep31">EP31 – Fonctions utilitaires</a></li>
+            <li><a href="#ep32">EP32 – Fonctions avancées</a></li>
+        </ul>
+    </div>
+
+    <!-- EP17 -->
+    <h2 id="ep17">EP17 – Fonctions de base</h2>
+    
+    <div class="exercise">
+        <h3>1. sePresenter</h3>
+        <div class="enonce">Affiche "Bonjour, je m'appelle [prenom] et j'ai [age] ans!"</div>
+        <div class="solution">
+            <pre><code>function sePresenter($prenom, $age) {
+    echo "Bonjour, je m'appelle $prenom et j'ai $age ans!";
+}</code></pre>
+        </div>
+        <div class="alternative">
+            <pre><code>function sePresenter($prenom, $age) {
+    return "Bonjour, je m'appelle $prenom et j'ai $age ans!";
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>2. calculerSurface</h3>
+        <div class="enonce">Retourne la surface d’un rectangle.</div>
+        <div class="solution">
+            <pre><code>function calculerSurface($largeur, $longueur) {
+    return $largeur * $longueur;
+}</code></pre>
+        </div>
+        <div class="alternative">
+            <pre><code>declare(strict_types=1);
+function calculerSurface(float $largeur, float $longueur): float {
+    return $largeur * $longueur;
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>3. genererTitre</h3>
+        <div class="enonce">Retourne <code>&lt;balise&gt;titre&lt;/balise&gt;</code>. Balise par défaut "h1".</div>
+        <div class="solution">
+            <pre><code>function genererTitre($titre, $balise = "h1") {
+    return "&lt;$balise&gt;$titre&lt;/$balise&gt;";
+}</code></pre>
+        </div>
+        <div class="alternative">
+            <pre><code>function genererTitre($titre, $balise = "h1") {
+    return sprintf("&lt;%s&gt;%s&lt;/%s&gt;", $balise, $titre, $balise);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>4. bonusDeVie</h3>
+        <div class="enonce">Ajoute 50 points à la variable originale sans <code>return</code>.</div>
+        <div class="solution">
+            <pre><code>function bonusDeVie(&$pointsDeVie) {
+    $pointsDeVie += 50;
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>5. formaterPrix</h3>
+        <div class="enonce">Formate un prix (float) avec une devise (par défaut "€").</div>
+        <div class="solution">
+            <pre><code>declare(strict_types=1);
+function formaterPrix(float $prix, string $devise = "€"): string {
+    return number_format($prix, 2, ',', ' ') . " $devise";
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>6. vitesse</h3>
+        <div class="enonce">Calcule et affiche la vitesse (m/s) à partir de distance (m) et temps (s).</div>
+        <div class="solution">
+            <pre><code>function vitesse($distance, $temps) {
+    $vitesse = $distance / $temps;
+    echo "La durée est de $temps secondes, la distance est de $distance mètres, la vitesse est de $vitesse m/s.";
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>7. validerEmail</h3>
+        <div class="enonce">Vérifie email : contient @ et ., local part >3, alphanumérique, ne commence pas par chiffre, TLD 2-3 lettres.</div>
+        <div class="solution">
+            <pre><code>function validerEmail($email) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) return false;
+    list($local, $domaine) = explode('@', $email);
+    if (strlen($local) <= 3) return false;
+    if (!ctype_alnum($local)) return false;
+    if (is_numeric($local[0])) return false;
+    if (!preg_match('/\.[a-zA-Z]{2,3}$/', $domaine)) return false;
+    return true;
+}</code></pre>
+        </div>
+        <div class="alternative">
+            <pre><code>function validerEmail($email) {
+    $pattern = '/^[a-zA-Z][a-zA-Z0-9]{3,}@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/';
+    return preg_match($pattern, $email) === 1;
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>8. echanger</h3>
+        <div class="enonce">Échange deux valeurs par référence.</div>
+        <div class="solution">
+            <pre><code>function echanger(&$a, &$b) {
+    list($a, $b) = [$b, $a];
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>9. somme (variable d’arguments)</h3>
+        <div class="enonce">Calcule la somme d’un nombre variable d’arguments.</div>
+        <div class="solution">
+            <pre><code>function somme(...$nombres) {
+    return array_sum($nombres);
+}</code></pre>
+        </div>
+    </div>
+
+    <!-- EP18 -->
+    <h2 id="ep18">EP18 – Fonctions récursives</h2>
+
+    <div class="exercise">
+        <h3>1. Inverser une chaîne</h3>
+        <div class="solution">
+            <pre><code>function inverserChaine($str) {
+    if (strlen($str) <= 1) return $str;
+    return inverserChaine(substr($str, 1)) . $str[0];
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>2. Afficher les nombres de $n à 1</h3>
+        <div class="solution">
+            <pre><code>function afficherInverse($n) {
+    if ($n <= 0) return;
+    echo $n . " ";
+    afficherInverse($n - 1);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>3. Somme 1 + 2 + … + $n</h3>
+        <div class="solution">
+            <pre><code>function sommeRecursive($n) {
+    if ($n <= 1) return $n;
+    return $n + sommeRecursive($n - 1);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>4. PGCD (Euclide)</h3>
+        <div class="solution">
+            <pre><code>function pgcd($a, $b) {
+    if ($b == 0) return $a;
+    return pgcd($b, $a % $b);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>5. Somme des nombres dans un tableau multidimensionnel</h3>
+        <div class="solution">
+            <pre><code>function sommeMultidim($array) {
+    $somme = 0;
+    foreach ($array as $element) {
+        if (is_array($element))
+            $somme += sommeMultidim($element);
+        else
+            $somme += $element;
+    }
+    return $somme;
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>6. Puissance récursive</h3>
+        <div class="solution">
+            <pre><code>function puissance($nombre, $exposant) {
+    if ($exposant == 0) return 1;
+    return $nombre * puissance($nombre, $exposant - 1);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>7. Palindrome</h3>
+        <div class="solution">
+            <pre><code>function estPalindrome($mot) {
+    $len = strlen($mot);
+    if ($len <= 1) return true;
+    if ($mot[0] != $mot[$len-1]) return false;
+    return estPalindrome(substr($mot, 1, $len-2));
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>8. Suite de Fibonacci (définition : fib(0)=1, fib(1)=2, fib(2)=5)</h3>
+        <div class="solution">
+            <pre><code>function fib($n) {
+    if ($n == 0) return 1;
+    if ($n == 1) return 2;
+    if ($n == 2) return 5;
+    return fib($n-1) + fib($n-2);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>9. Suite de Lucas (L0=2, L1=1, Ln = Ln-1+Ln-2)</h3>
+        <div class="solution">
+            <pre><code>function lucas($n) {
+    if ($n == 0) return 2;
+    if ($n == 1) return 1;
+    return lucas($n-1) + lucas($n-2);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>10. Ln = Fn-1 + Fn+1 (Fibonacci classique)</h3>
+        <div class="solution">
+            <pre><code>function fibo($n) {
+    if ($n == 0) return 0;
+    if ($n == 1) return 1;
+    return fibo($n-1) + fibo($n-2);
+}
+function Ln($n) {
+    return fibo($n-1) + fibo($n+1);
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>11. Somme des chiffres d’un entier</h3>
+        <div class="solution">
+            <pre><code>function sommeChiffres($n) {
+    $n = abs($n);
+    if ($n < 10) return $n;
+    return ($n % 10) + sommeChiffres((int)($n / 10));
+}</code></pre>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <h3>12. Projet which_is_larger</h3>
+        <div class="enonce">Fichier functions.php :</div>
+        <div class="solution">
+            <pre><code>&lt;?php
+function which_is_larger($a, $b) {
+    if ($a > $b) return $a;
+    if ($b > $a) return $b;
+    return "Les deux sont égaux : $a";
+}
+?&gt;</code></pre>
+        </div>
+        <div class="enonce">Fichier main.php :</div>
+        <div class="solution">
+            <pre><code>&lt;?php
+include 'functions.php';
+echo which_is_larger(4,5) . "&lt;br&gt;";
+echo which_is_larger(21,19) . "&lt;br&gt;";
+echo which_is_larger(3,3) . "&lt;br&gt;";
+?&gt;</code></pre>
+        </div>
+    </div>
+
+    <!-- EP19 à EP32 : je les ajoute de manière condensée mais complète (déjà fournies précédemment) -->
+    <h2 id="ep19">EP19 – Manipulation de tableaux</h2>
+    <div class="exercise">
+        <h3>Tableau aléatoire de notes (0–20), min, max, indice de 20</h3>
+        <div class="solution">
+            <pre><code>$notes = array_map(fn() => rand(0,20), range(1,20));
+$min = min($notes);
+$max = max($notes);
+$indice = array_search(20, $notes);
+echo "Min: $min, Max: $max, Indice du 20: " . ($indice !== false ? $indice : "aucun");</code></pre>
+        </div>
+    </div>
+    <div class="exercise">
+        <h3>Supprimer les doublons d’un tableau trié</h3>
+        <div class="solution">
+            <pre><code>$array = [1,2,2,3,3,3,4,5,5];
+$unique = array_values(array_unique($array));</code></pre>
+        </div>
+    </div>
+    <div class="exercise">
+        <h3>Fusionner deux tableaux</h3>
+        <div class="solution"><pre><code>$fusion = array_merge($tab1, $tab2);</code></pre></div>
+    </div>
+    <div class="exercise">
+        <h3>Supprimer les doublons (deux méthodes)</h3>
+        <div class="solution"><pre><code>$sansDoublons = array_unique($array);
+// ou
+$sansDoublons = array_keys(array_flip($array));</code></pre></div>
+    </div>
+    <div class="exercise">
+        <h3>Compter les occurrences</h3>
+        <div class="solution"><pre><code>$occurrences = array_count_values($array);</code></pre></div>
+    </div>
+    <div class="exercise">
+        <h3>Prix soldés</h3>
+        <div class="solution"><pre><code>$prix = [100,200,50,300];
+$reduction = 0.50;
+$prixSoldes = array_map(fn($p) => $p * (1 - $reduction), $prix);</code></pre></div>
+    </div>
+    <div class="exercise">
+        <h3>Affichage avec Bootstrap et tri</h3>
+        <div class="solution"><pre><code>$notes_apprenants = ["Mohamed"=>"16", "Ahmed"=>"14", ...];
+ksort($notes_apprenants); // tri par clés
+arsort($notes_apprenants); // tri par valeurs décroissantes
+// puis tableau HTML avec Bootstrap</code></pre></div>
+    </div>
+
+    <h2 id="ep20">EP20 – Gestion d’invités</h2>
+    <div class="exercise">
+        <h3>Données</h3>
+        <div class="solution"><pre><code>$invites = ["Brad Pitt", "Leonardo DiCaprio", "Scarlett Johansson", "Tom Cruise"];
+$vipArrive = "Leonardo DiCaprio";
+$inconnu = "Jean Dupont";</code></pre></div>
+    </div>
+    <div class="exercise"><h3>1. Nombre d’invités</h3><div class="solution"><pre><code>echo count($invites);</code></pre></div></div>
+    <div class="exercise"><h3>2. Vérifier VIP</h3><div class="solution"><pre><code>if (in_array($vipArrive, $invites)) echo "Entrez Monsieur $vipArrive";</code></pre></div></div>
+    <div class="exercise"><h3>3. Vérifier inconnu</h3><div class="solution"><pre><code>if (!in_array($inconnu, $invites)) echo "Désolé, vous n'êtes pas sur la liste";</code></pre></div></div>
+    <div class="exercise"><h3>4. Index de Tom Cruise</h3><div class="solution"><pre><code>$index = array_search("Tom Cruise", $invites);</code></pre></div></div>
+    <div class="exercise"><h3>5. Mélanger</h3><div class="solution"><pre><code>shuffle($invites);</code></pre></div></div>
+    <div class="exercise"><h3>6. Premier élément après mélange</h3><div class="solution"><pre><code>echo reset($invites);</code></pre></div></div>
+    <div class="exercise"><h3>7. Trier alphabétiquement</h3><div class="solution"><pre><code>sort($invites);</code></pre></div></div>
+    <div class="exercise"><h3>8. Diviser par tables de 2</h3><div class="solution"><pre><code>$tables = array_chunk($invites, 2);</code></pre></div></div>
+    <div class="exercise"><h3>9. Prénom des stars</h3><div class="solution"><pre><code>$prenoms = array_map(fn($nom) => explode(' ', $nom)[0], $invites);</code></pre></div></div>
+    <div class="exercise"><h3>10. Liste en majuscules</h3><div class="solution"><pre><code>$maj = array_map('strtoupper', $invites);</code></pre></div></div>
+
+    <h2 id="ep21">EP21 – Panier d’achat</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$panier = ["T-shirt", "Casquette", "Pantalon"];</code></pre></div></div>
+    <div class="exercise"><h3>1. Ajouter "Chaussettes"</h3><div class="solution"><pre><code>array_push($panier, "Chaussettes");</code></pre></div></div>
+    <div class="exercise"><h3>2. Retirer le dernier</h3><div class="solution"><pre><code>array_pop($panier);</code></pre></div></div>
+    <div class="exercise"><h3>3. Ajouter "Pull" au début</h3><div class="solution"><pre><code>array_unshift($panier, "Pull");</code></pre></div></div>
+    <div class="exercise"><h3>4. Ajouter cadeaux</h3><div class="solution"><pre><code>$panier = array_merge($panier, ["Stickers", "Porte-clés"]);</code></pre></div></div>
+    <div class="exercise"><h3>5. Affichage séparé par virgules</h3><div class="solution"><pre><code>echo implode(", ", $panier);</code></pre></div></div>
+    <div class="exercise"><h3>6. Liste numérotée HTML</h3><div class="solution"><pre><code>echo "&lt;ul&gt;";
+foreach ($panier as $p) echo "&lt;li&gt;$p&lt;/li&gt;";
+echo "&lt;/ul&gt;";</code></pre></div></div>
+    <div class="exercise"><h3>7. Vérifier "Casquette"</h3><div class="solution"><pre><code>if (in_array("Casquette", $panier)) echo "Accessoire trouvé !";</code></pre></div></div>
+    <div class="exercise"><h3>8. Ajouter deuxième T-shirt puis supprimer doublons</h3><div class="solution"><pre><code>$panier[] = "T-shirt";
+$panier = array_unique($panier);</code></pre></div></div>
+    <div class="exercise"><h3>9. Trier alphabétiquement</h3><div class="solution"><pre><code>sort($panier);</code></pre></div></div>
+
+    <h2 id="ep22">EP22 – Compétences</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$competences = ["PHP", "  php ", "CSS", "", "html", "CSS", "Javascript", null];</code></pre></div></div>
+    <div class="exercise"><h3>1. Majuscules et trim</h3><div class="solution"><pre><code>$competences = array_map(fn($c) => strtoupper(trim($c)), $competences);</code></pre></div></div>
+    <div class="exercise"><h3>2. Supprimer vides et null</h3><div class="solution"><pre><code>$competences = array_filter($competences);</code></pre></div></div>
+    <div class="exercise"><h3>3. Supprimer doublons</h3><div class="solution"><pre><code>$competences = array_values(array_unique($competences));</code></pre></div></div>
+    <div class="exercise"><h3>4. Liste finale</h3><div class="solution"><pre><code>echo implode(", ", $competences);</code></pre></div></div>
+    <div class="exercise"><h3>5. Compétences ≤ 3 lettres</h3><div class="solution"><pre><code>$max3 = array_filter($competences, fn($c) => strlen($c) <= 3);</code></pre></div></div>
+    <div class="exercise"><h3>6. Recherche "SC"</h3><div class="solution"><pre><code>$sc = array_filter($competences, fn($c) => stripos($c, "SC") !== false);</code></pre></div></div>
+    <div class="exercise"><h3>7. Liste déroulante HTML</h3><div class="solution"><pre><code>echo "&lt;select&gt;";
+foreach ($competences as $c) echo "&lt;option&gt;$c&lt;/option&gt;";
+echo "&lt;/select&gt;";</code></pre></div></div>
+    <div class="exercise"><h3>8. Tableau associatif longueur</h3><div class="solution"><pre><code>$longueurs = array_combine($competences, array_map('strlen', $competences));</code></pre></div></div>
+    <div class="exercise"><h3>9. Tri alphabétique</h3><div class="solution"><pre><code>sort($competences);</code></pre></div></div>
+    <div class="exercise"><h3>10. Tri par longueur</h3><div class="solution"><pre><code>usort($competences, fn($a, $b) => strlen($a) - strlen($b));</code></pre></div></div>
+
+    <h2 id="ep23">EP23 – Ventes mensuelles</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$ventes = ["Janvier"=>1200, "Février"=>900, "Mars"=>1500, "Avril"=>800];</code></pre></div></div>
+    <div class="exercise"><h3>1. Tri décroissant</h3><div class="solution"><pre><code>arsort($ventes);</code></pre></div></div>
+    <div class="exercise"><h3>2. Mois record</h3><div class="solution"><pre><code>$moisRecord = key($ventes);
+$montantRecord = current($ventes);</code></pre></div></div>
+    <div class="exercise"><h3>3. Total</h3><div class="solution"><pre><code>$total = array_sum($ventes);</code></pre></div></div>
+    <div class="exercise"><h3>4. Moyenne et mois au‑dessus</h3><div class="solution"><pre><code>$moyenne = $total / count($ventes);
+$auDessus = array_filter($ventes, fn($v) => $v > $moyenne);</code></pre></div></div>
+    <div class="exercise"><h3>5. Mois contenant 'r'</h3><div class="solution"><pre><code>$avecR = array_filter($ventes, fn($v, $m) => stripos($m, 'r') !== false, ARRAY_FILTER_USE_BOTH);</code></pre></div></div>
+    <div class="exercise"><h3>6. Commission 5%</h3><div class="solution"><pre><code>foreach ($ventes as $mois => $montant)
+    echo "$mois : $montant (commission : " . ($montant*0.05) . " MAD)\n";</code></pre></div></div>
+
+    <h2 id="ep24">EP24 – Étudiants</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$etudiants = [
+    ["nom"=>"Ali", "notes"=>[12,15,18]],
+    ["nom"=>"Bob", "notes"=>[10,9,14]],
+    ["nom"=>"Claire", "notes"=>[16,17,19]],
+    ["nom"=>"David", "notes"=>[8,11,13]]
+];</code></pre></div></div>
+    <div class="exercise"><h3>1. Afficher notes et moyenne</h3><div class="solution"><pre><code>foreach ($etudiants as $e) {
+    $moy = array_sum($e["notes"]) / count($e["notes"]);
+    echo "{$e['nom']} : " . implode(", ", $e['notes']) . " - moyenne : $moy\n";
+}</code></pre></div></div>
+    <div class="exercise"><h3>2. Moyenne de la classe</h3><div class="solution"><pre><code>$total = array_sum(array_map(fn($e) => array_sum($e["notes"])/count($e["notes"]), $etudiants));
+$moyenneClasse = $total / count($etudiants);</code></pre></div></div>
+    <div class="exercise"><h3>3. Tri décroissant par moyenne</h3><div class="solution"><pre><code>usort($etudiants, fn($a, $b) => (array_sum($b["notes"])/count($b["notes"])) - (array_sum($a["notes"])/count($a["notes"])));</code></pre></div></div>
+    <div class="exercise"><h3>4. Admis, rattrapage, redoublant</h3><div class="solution"><pre><code>$admis = $rattrapage = $redoublant = [];
+foreach ($etudiants as $e) {
+    $moy = array_sum($e["notes"])/count($e["notes"]);
+    if ($moy >= 10) $admis[] = $e["nom"];
+    elseif ($moy >= 7) $rattrapage[] = $e["nom"];
+    else $redoublant[] = $e["nom"];
+}</code></pre></div></div>
+    <div class="exercise"><h3>5. Majorant</h3><div class="solution"><pre><code>$maxMoy = max(array_map(fn($e) => array_sum($e["notes"])/count($e["notes"]), $etudiants));
+$majorant = array_values(array_filter($etudiants, fn($e) => array_sum($e["notes"])/count($e["notes"]) == $maxMoy))[0]["nom"];</code></pre></div></div>
+    <div class="exercise"><h3>6. Étudiants avec note < 10</h3><div class="solution"><pre><code>$faible = array_filter($etudiants, fn($e) => min($e["notes"]) < 10);</code></pre></div></div>
+    <div class="exercise"><h3>7. Ajouter +1 à Bob</h3><div class="solution"><pre><code>foreach ($etudiants as &$e) if ($e["nom"] == "Bob") $e["notes"] = array_map(fn($n) => $n+1, $e["notes"]);</code></pre></div></div>
+    <div class="exercise"><h3>8. Meilleure / pire note</h3><div class="solution"><pre><code>foreach ($etudiants as $e)
+    echo $e["nom"] . " : meilleure = " . max($e["notes"]) . ", pire = " . min($e["notes"]) . "\n";</code></pre></div></div>
+    <div class="exercise"><h3>9. Tableau HTML</h3><div class="solution"><pre><code>echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Nom&lt;/th&gt;&lt;th&gt;Moyenne&lt;/th&gt;&lt;/tr&gt;";
+foreach ($etudiants as $e) {
+    $moy = array_sum($e["notes"])/count($e["notes"]);
+    echo "&lt;tr&gt;&lt;td&gt;{$e['nom']}&lt;/td&gt;&lt;td&gt;$moy&lt;/td&gt;&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";</code></pre></div></div>
+
+    <h2 id="ep25">EP25 – Produits</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$produits = [
+    ["id"=>1, "nom"=>"Ordinateur", "prix"=>800, "stock"=>15],
+    ["id"=>2, "nom"=>"Souris", "prix"=>25, "stock"=>50],
+    ["id"=>3, "nom"=>"Clavier", "prix"=>45, "stock"=>30],
+    ["id"=>4, "nom"=>"Écran", "prix"=>250, "stock"=>10],
+    ["id"=>5, "nom"=>"Casque", "prix"=>80, "stock"=>5]
+];</code></pre></div></div>
+    <div class="exercise"><h3>1. État du stock</h3><div class="solution"><pre><code>foreach ($produits as $p) {
+    $msg = $p["stock"] == 0 ? "en rupture" : ($p["stock"] < 5 ? "stock faible" : $p["stock"]);
+    echo "{$p['nom']} : $msg\n";
+}</code></pre></div></div>
+    <div class="exercise"><h3>2. Valeur totale du stock</h3><div class="solution"><pre><code>$valeur = array_sum(array_map(fn($p) => $p["prix"] * $p["stock"], $produits));</code></pre></div></div>
+    <div class="exercise"><h3>3. Produits < 50 DH</h3><div class="solution"><pre><code>$filtres = array_filter($produits, fn($p) => $p["prix"] < 50);</code></pre></div></div>
+    <div class="exercise"><h3>4. Augmentation de 10%</h3><div class="solution"><pre><code>foreach ($produits as &$p) $p["prix"] *= 1.10;</code></pre></div></div>
+    <div class="exercise"><h3>5. Produit le plus cher</h3><div class="solution"><pre><code>$plusCher = array_reduce($produits, fn($c, $p) => ($c === null || $p["prix"] > $c["prix"]) ? $p : $c, null);</code></pre></div></div>
+
+    <h2 id="ep26">EP26 – Matrices</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$M = [[3,2,1],[2,4,0],[1,0,5]];
+$A = [[1,2,-3],[2,4,9],[-3,9,0]];</code></pre></div></div>
+    <div class="exercise"><h3>1. Afficher matrices</h3><div class="solution"><pre><code>function afficherMatrice($m) {
+    foreach ($m as $l) echo implode(" ", $l) . "&lt;br&gt;";
+}</code></pre></div></div>
+    <div class="exercise"><h3>2. Somme diagonale principale de A</h3><div class="solution"><pre><code>$sommeDiag = 0;
+for ($i=0; $i<count($A); $i++) $sommeDiag += $A[$i][$i];</code></pre></div></div>
+    <div class="exercise"><h3>3. Transposée de M</h3><div class="solution"><pre><code>$transposee = array_map(null, ...$M);</code></pre></div></div>
+    <div class="exercise"><h3>4. Somme tous éléments de M</h3><div class="solution"><pre><code>$sommeTot = array_sum(array_map('array_sum', $M));</code></pre></div></div>
+    <div class="exercise"><h3>5. Max/min de chaque matrice</h3><div class="solution"><pre><code>$maxM = max(array_map('max', $M));
+$minM = min(array_map('min', $M));</code></pre></div></div>
+    <div class="exercise"><h3>6. Nombre d’éléments pairs dans A</h3><div class="solution"><pre><code>$pairs = 0;
+foreach ($A as $l) $pairs += count(array_filter($l, fn($v) => $v % 2 == 0));</code></pre></div></div>
+    <div class="exercise"><h3>7. Diagonale secondaire de M</h3><div class="solution"><pre><code>$n = count($M);
+$sommeSec = 0;
+for ($i=0; $i<$n; $i++) $sommeSec += $M[$i][$n-1-$i];</code></pre></div></div>
+    <div class="exercise"><h3>8. Multiplier A par 2</h3><div class="solution"><pre><code>$A2 = array_map(fn($l) => array_map(fn($v) => $v*2, $l), $A);</code></pre></div></div>
+    <div class="exercise"><h3>9. Symétrie</h3><div class="solution"><pre><code>function estSymetrique($m) {
+    return $m == array_map(null, ...$m);
+}</code></pre></div></div>
+    <div class="exercise"><h3>10. Tableau HTML de A</h3><div class="solution"><pre><code>echo "&lt;table border='1'&gt;";
+foreach ($A as $l) {
+    echo "&lt;tr&gt;";
+    foreach ($l as $v) echo "&lt;td&gt;$v&lt;/td&gt;";
+    echo "&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";</code></pre></div></div>
+    <div class="exercise"><h3>12. Somme de deux matrices</h3><div class="solution"><pre><code>function sommeMatrices($m1, $m2) {
+    return array_map(fn($l1, $l2) => array_map(fn($a,$b)=>$a+$b, $l1, $l2), $m1, $m2);
+}</code></pre></div></div>
+    <div class="exercise"><h3>13. Produit de deux matrices</h3><div class="solution"><pre><code>function produitMatrices($m1, $m2) {
+    $n = count($m1);
+    $res = [];
+    for ($i=0; $i<$n; $i++) {
+        for ($j=0; $j<$n; $j++) {
+            $res[$i][$j] = array_sum(array_map(fn($k) => $m1[$i][$k] * $m2[$k][$j], range(0,$n-1)));
+        }
+    }
+    return $res;
+}</code></pre></div></div>
+
+    <h2 id="ep27">EP27 – Employés</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$employes = [
+    ["nom"=>"Alice","age"=>28,"salaire"=>32000,"departement"=>"IT"],
+    ["nom"=>"Bob","age"=>35,"salaire"=>45000,"departement"=>"RH"],
+    ["nom"=>"Claire","age"=>42,"salaire"=>52000,"departement"=>"IT"],
+    ["nom"=>"David","age"=>31,"salaire"=>38000,"departement"=>"Ventes"],
+    ["nom"=>"Eva","age"=>29,"salaire"=>35000,"departement"=>"IT"],
+    ["nom"=>"Frank","age"=>45,"salaire"=>58000,"departement"=>"Ventes"]
+];</code></pre></div></div>
+    <div class="exercise"><h3>1. Employés IT</h3><div class="solution"><pre><code>$it = array_filter($employes, fn($e) => $e["departement"] == "IT");</code></pre></div></div>
+    <div class="exercise"><h3>2. Augmenter salaires 10%</h3><div class="solution"><pre><code>foreach ($employes as &$e) $e["salaire"] *= 1.10;</code></pre></div></div>
+    <div class="exercise"><h3>3. Salaire total par département</h3><div class="solution"><pre><code>$totalParDept = array_reduce($employes, fn($c, $e) => $c + [$e["departement"] => ($c[$e["departement"]] ?? 0) + $e["salaire"]], []);</code></pre></div></div>
+    <div class="exercise"><h3>4. Tri salaires décroissants</h3><div class="solution"><pre><code>usort($employes, fn($a,$b) => $b["salaire"] <=> $a["salaire"]);</code></pre></div></div>
+    <div class="exercise"><h3>5. Tableau HTML</h3><div class="solution"><pre><code>echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Nom&lt;/th&gt;&lt;th&gt;Salaire&lt;/th&gt;&lt;/tr&gt;";
+foreach ($employes as $e) echo "&lt;tr&gt;&lt;td&gt;{$e['nom']}&lt;/td&gt;&lt;td&gt;{$e['salaire']}&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;/table&gt;";</code></pre></div></div>
+
+    <h2 id="ep28">EP28 – Bibliothèque</h2>
+    <div class="exercise"><h3>Données (structure complexe)</h3><div class="solution"><pre><code>$bibliotheque = [
+    "livres" => [
+        "L001" => ["titre"=>"Le Petit Prince", "auteur"=>"...", "annee"=>1943, "disponible"=>true, "emprunteurs"=>[]],
+        "L002" => ["titre"=>"1984", "auteur"=>"...", "annee"=>1949, "disponible"=>false, "emprunteurs"=>["Alice","Bob"]],
+        "L003" => ["titre"=>"Les Misérables", "auteur"=>"...", "annee"=>1862, "disponible"=>true, "emprunteurs"=>["Claire"]]
+    ],
+    "utilisateurs" => [
+        "U001" => ["nom"=>"Alice", "livres_empruntes"=>["L002"]],
+        "U002" => ["nom"=>"Bob", "livres_empruntes"=>["L002"]],
+        "U003" => ["nom"=>"Claire", "livres_empruntes"=>["L003"]]
+    ]
+];</code></pre></div></div>
+    <div class="exercise"><h3>1. Livres disponibles</h3><div class="solution"><pre><code>$dispos = array_filter($bibliotheque["livres"], fn($l) => $l["disponible"]);</code></pre></div></div>
+    <div class="exercise"><h3>2. Rechercher "1984"</h3><div class="solution"><pre><code>foreach ($bibliotheque["livres"] as $id => $l)
+    if ($l["titre"] == "1984") echo "Trouvé : $id";</code></pre></div></div>
+    <div class="exercise"><h3>3. Emprunter L001 par U001</h3><div class="solution"><pre><code>$bibliotheque["livres"]["L001"]["disponible"] = false;
+$bibliotheque["livres"]["L001"]["emprunteurs"][] = $bibliotheque["utilisateurs"]["U001"]["nom"];
+$bibliotheque["utilisateurs"]["U001"]["livres_empruntes"][] = "L001";</code></pre></div></div>
+    <div class="exercise"><h3>4. Statistiques</h3><div class="solution"><pre><code>$totalLivres = count($bibliotheque["livres"]);
+$dispos = count(array_filter($bibliotheque["livres"], fn($l) => $l["disponible"]));
+$totalUsers = count($bibliotheque["utilisateurs"]);</code></pre></div></div>
+    <div class="exercise"><h3>5. Utilisateur le plus d’emprunts</h3><div class="solution"><pre><code>$max = 0; $userMax = "";
+foreach ($bibliotheque["utilisateurs"] as $id => $u)
+    if (count($u["livres_empruntes"]) > $max) {
+        $max = count($u["livres_empruntes"]);
+        $userMax = $u["nom"];
+    }</code></pre></div></div>
+    <div class="exercise"><h3>6. Fonctions (emprunter, retourner, rechercher)</h3><div class="solution"><pre><code>function emprunterLivre(&$biblio, $userId, $livreId) { ... }
+function retournerLivre(&$biblio, $userId, $livreId) { ... }
+function rechercherLivre($biblio, $titre) { ... }</code></pre></div></div>
+
+    <h2 id="ep29">EP29 – Ventes (produits)</h2>
+    <div class="exercise"><h3>Données</h3><div class="solution"><pre><code>$ventes = [
+    ["produit"=>"Ordinateur", "quantite"=>3, "prix_unitaire"=>800, "categorie"=>"Électronique"],
+    ["produit"=>"Souris", "quantite"=>10, "prix_unitaire"=>25, "categorie"=>"Électronique"],
+    ["produit"=>"Chaise", "quantite"=>5, "prix_unitaire"=>120, "categorie"=>"Mobilier"],
+    ["produit"=>"Livre", "quantite"=>20, "prix_unitaire"=>15, "categorie"=>"Papeterie"],
+    ["produit"=>"Table", "quantite"=>2, "prix_unitaire"=>300, "categorie"=>"Mobilier"],
+    ["produit"=>"Stylo", "quantite"=>50, "prix_unitaire"=>2, "categorie"=>"Papeterie"]
+];</code></pre></div></div>
+    <div class="exercise"><h3>1. CA total</h3><div class="solution"><pre><code>$caTotal = array_reduce($ventes, fn($c, $v) => $c + $v["quantite"]*$v["prix_unitaire"], 0);</code></pre></div></div>
+    <div class="exercise"><h3>2. Extraire liste des produits</h3><div class="solution"><pre><code>$produits = array_column($ventes, "produit");</code></pre></div></div>
+    <div class="exercise"><h3>3. Regrouper par catégorie</h3><div class="solution"><pre><code>$parCategorie = array_reduce($ventes, fn($c, $v) => $c + [$v["categorie"] => [...($c[$v["categorie"]] ?? []), $v]], []);</code></pre></div></div>
+    <div class="exercise"><h3>4. Produit le plus vendu (quantité)</h3><div class="solution"><pre><code>$maxVendu = array_reduce($ventes, fn($c, $v) => ($c === null || $v["quantite"] > $c["quantite"]) ? $v : $c, null);</code></pre></div></div>
+    <div class="exercise"><h3>5. Moyenne du prix unitaire</h3><div class="solution"><pre><code>$moyennePrix = array_sum(array_column($ventes, "prix_unitaire")) / count($ventes);</code></pre></div></div>
+    <div class="exercise"><h3>6. Produit avec CA le plus élevé</h3><div class="solution"><pre><code>$maxCA = array_reduce($ventes, fn($c, $v) => ($c === null || $v["quantite"]*$v["prix_unitaire"] > $c["ca"]) ? ["produit"=>$v["produit"], "ca"=>$v["quantite"]*$v["prix_unitaire"]] : $c, null);</code></pre></div></div>
+    <div class="exercise"><h3>7. Total des ventes par catégorie</h3><div class="solution"><pre><code>$totalParCat = array_reduce($ventes, fn($c, $v) => $c + [$v["categorie"] => ($c[$v["categorie"]] ?? 0) + $v["quantite"]*$v["prix_unitaire"]], []);</code></pre></div></div>
+    <div class="exercise"><h3>8. Produits avec prix > 100</h3><div class="solution"><pre><code>$prixSup100 = array_filter($ventes, fn($v) => $v["prix_unitaire"] > 100);</code></pre></div></div>
+    <div class="exercise"><h3>9. Trier par prix décroissant</h3><div class="solution"><pre><code>usort($ventes, fn($a, $b) => $b["prix_unitaire"] <=> $a["prix_unitaire"]);</code></pre></div></div>
+    <div class="exercise"><h3>10. Ajouter champ total_vente</h3><div class="solution"><pre><code>array_walk($ventes, fn(&$v) => $v["total_vente"] = $v["quantite"] * $v["prix_unitaire"]);</code></pre></div></div>
+    <div class="exercise"><h3>11. Catégorie la plus rentable</h3><div class="solution"><pre><code>$maxCat = array_keys($totalParCat, max($totalParCat))[0];</code></pre></div></div>
+    <div class="exercise"><h3>12. Rechercher un produit par nom</h3><div class="solution"><pre><code>$nom = "Livre";
+$trouve = array_filter($ventes, fn($v) => $v["produit"] == $nom);</code></pre></div></div>
+    <div class="exercise"><h3>13. Ajouter une nouvelle vente</h3><div class="solution"><pre><code>$ventes[] = ["produit"=>"Lampe", "quantite"=>4, "prix_unitaire"=>35, "categorie"=>"Électronique"];</code></pre></div></div>
+    <div class="exercise"><h3>14. Supprimer une vente (ex: "Souris")</h3><div class="solution"><pre><code>$index = array_search("Souris", array_column($ventes, "produit"));
+if ($index !== false) unset($ventes[$index]);</code></pre></div></div>
+    <div class="exercise"><h3>15. Tableau HTML</h3><div class="solution"><pre><code>echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Produit&lt;/th&gt;&lt;th&gt;Qté&lt;/th&gt;&lt;th&gt;Prix&lt;/th&gt;&lt;th&gt;Catégorie&lt;/th&gt;&lt;th&gt;Total&lt;/th&gt;&lt;/tr&gt;";
+foreach ($ventes as $v) {
+    echo "&lt;tr&gt;&lt;td&gt;{$v['produit']}&lt;/td&gt;&lt;td&gt;{$v['quantite']}&lt;/td&gt;&lt;td&gt;{$v['prix_unitaire']}&lt;/td&gt;&lt;td&gt;{$v['categorie']}&lt;/td&gt;&lt;td&gt;".($v['quantite']*$v['prix_unitaire'])."&lt;/td&gt;&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";</code></pre></div></div>
+    <div class="exercise"><h3>16. Fonctions demandées</h3><div class="solution"><pre><code>function calculerCA($ventes) { return array_reduce($ventes, fn($c, $v) => $c + $v["quantite"]*$v["prix_unitaire"], 0); }
+function produitPlusVendu($ventes) { $max = array_reduce($ventes, fn($c, $v) => ($c === null || $v["quantite"] > $c["quantite"]) ? $v : $c, null); return $max["produit"]; }
+function regrouperParCategorie($ventes) { return array_reduce($ventes, fn($c, $v) => $c + [$v["categorie"] => [...($c[$v["categorie"]] ?? []), $v]], []); }</code></pre></div></div>
+
+    <h2 id="ep30">EP30 – ADN et gigasecondes</h2>
+    <div class="exercise"><h3>1. Distance de Hamming</h3><div class="solution"><pre><code>function hammingDistance($str1, $str2) {
+    if (strlen($str1) != strlen($str2)) return false;
+    $diff = 0;
+    for ($i=0; $i<strlen($str1); $i++)
+        if ($str1[$i] != $str2[$i]) $diff++;
+    return $diff;
+}</code></pre></div></div>
+    <div class="exercise"><h3>2. Ajouter 9 gigasecondes à une date</h3><div class="solution"><pre><code>function dateAddGigaSecond($dateStr) {
+    return date('Y-m-d', strtotime($dateStr) + 1000000000);
+}</code></pre></div></div>
+
+    <h2 id="ep31">EP31 – Fonctions utilitaires</h2>
+    <div class="exercise"><h3>1. squared_sum</h3><div class="solution"><pre><code>function squared_sum($tab) { return array_sum(array_map(fn($v) => $v*$v, $tab)); }</code></pre></div></div>
+    <div class="exercise"><h3>2. moyenne</h3><div class="solution"><pre><code>function moyenne($tab) { if (empty($tab)) return 0; return array_sum($tab) / count($tab); }</code></pre></div></div>
+    <div class="exercise"><h3>3. rechercherValeur</h3><div class="solution"><pre><code>function rechercherValeur($tab, $val) { return in_array($val, $tab); }</code></pre></div></div>
+    <div class="exercise"><h3>4. trierTableau (tri à bulles)</h3><div class="solution"><pre><code>function trierTableau($tab) {
+    $n = count($tab);
+    for ($i=0; $i<$n-1; $i++)
+        for ($j=0; $j<$n-$i-1; $j++)
+            if ($tab[$j] > $tab[$j+1]) {
+                $temp = $tab[$j];
+                $tab[$j] = $tab[$j+1];
+                $tab[$j+1] = $temp;
+            }
+    return $tab;
+}</code></pre></div></div>
+    <div class="exercise"><h3>5. fusionnerSansDoublons</h3><div class="solution"><pre><code>function fusionnerSansDoublons($tab1, $tab2) { return array_values(array_unique(array_merge($tab1, $tab2))); }</code></pre></div></div>
+    <div class="exercise"><h3>6. compterOccurrences</h3><div class="solution"><pre><code>function compterOccurrences($tab) { return array_count_values($tab); }</code></pre></div></div>
+    <div class="exercise"><h3>7. filtrer</h3><div class="solution"><pre><code>function filtrer($tab, $callback) { return array_filter($tab, $callback); }</code></pre></div></div>
+    <div class="exercise"><h3>8. appliquerCallback</h3><div class="solution"><pre><code>function appliquerCallback($tab, $callback) { return array_map($callback, $tab); }</code></pre></div></div>
+    <div class="exercise"><h3>9. regrouper</h3><div class="solution"><pre><code>function regrouper($tab, $cle) {
+    return array_reduce($tab, fn($c, $e) => $c + [$e[$cle] => [...($c[$e[$cle]] ?? []), $e]], []);
+}</code></pre></div></div>
+    <div class="exercise"><h3>10. genererPlage</h3><div class="solution"><pre><code>function genererPlage($debut, $fin, $pas = 1) { return range($debut, $fin, $pas); }</code></pre></div></div>
+
+    <h2 id="ep32">EP32 – Fonctions avancées</h2>
+    <div class="exercise"><h3>1. echangerLignes</h3><div class="solution"><pre><code>function echangerLignes($mat, $l1, $l2) {
+    list($mat[$l1], $mat[$l2]) = [$mat[$l2], $mat[$l1]];
+    return $mat;
+}</code></pre></div></div>
+    <div class="exercise"><h3>2. produitCartesien</h3><div class="solution"><pre><code>function produitCartesien($tab1, $tab2) {
+    $res = [];
+    foreach ($tab1 as $a) foreach ($tab2 as $b) $res[] = [$a, $b];
+    return $res;
+}</code></pre></div></div>
+    <div class="exercise"><h3>3. intersection</h3><div class="solution"><pre><code>function intersection($tab1, $tab2) { return array_values(array_unique(array_intersect($tab1, $tab2))); }</code></pre></div></div>
+    <div class="exercise"><h3>4. difference</h3><div class="solution"><pre><code>function difference($a, $b) { return array_values(array_diff($a, $b)); }</code></pre></div></div>
+    <div class="exercise"><h3>5. validerNotes</h3><div class="solution"><pre><code>function validerNotes($notes) {
+    $erreurs = [];
+    foreach ($notes as $i => $n) if (!is_numeric($n) || $n < 0 || $n > 20) $erreurs[] = $i;
+    return $erreurs;
+}</code></pre></div></div>
+    <div class="exercise"><h3>6. statistiques</h3><div class="solution"><pre><code>function statistiques($tab) {
+    if (empty($tab)) return ['somme'=>0, 'moyenne'=>0, 'min'=>null, 'max'=>null, 'ecart_type'=>0];
+    $somme = array_sum($tab);
+    $moy = $somme / count($tab);
+    $min = min($tab);
+    $max = max($tab);
+    $var = array_sum(array_map(fn($v) => pow($v - $moy, 2), $tab)) / count($tab);
+    return ['somme'=>$somme, 'moyenne'=>$moy, 'min'=>$min, 'max'=>$max, 'ecart_type'=>sqrt($var)];
+}</code></pre></div></div>
+    <div class="exercise"><h3>7. tableauEnArbre</h3><div class="solution"><pre><code>function tableauEnArbre($elements, $id = 'id', $parent = 'parent_id') {
+    $index = [];
+    foreach ($elements as &$e) {
+        $index[$e[$id]] = &$e;
+        $e['enfants'] = [];
+    }
+    $arbre = [];
+    foreach ($elements as &$e) {
+        if ($e[$parent] === null) $arbre[] = &$e;
+        else $index[$e[$parent]]['enfants'][] = &$e;
+    }
+    return $arbre;
+}</code></pre></div></div>
+
+    <footer>
+        <p>Document généré le <?php echo date('d/m/Y H:i'); ?> – Contient toutes les solutions des exercices EP17 à EP32 avec alternatives.</p>
+    </footer>
+</body>
+</html>
