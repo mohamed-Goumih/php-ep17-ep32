@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correction Groupe DEV102 – Contrôle PHP v2 (ajustée)</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #eef2f5;
+            margin: 0;
+            padding: 20px;
+            color: #1e2a3e;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            padding: 20px 16px 32px 16px;
+        }
+        h1 {
+            font-size: 1.9rem;
+            margin: 0 0 0.25rem 0;
+            color: #0a4b6e;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        h1 small {
+            font-size: 0.9rem;
+            font-weight: normal;
+            background: #e9ecef;
+            padding: 4px 12px;
+            border-radius: 40px;
+            color: #2c5a7a;
+        }
+        .sub {
+            border-left: 4px solid #2c7da0;
+            padding-left: 16px;
+            margin: 12px 0 24px 0;
+            color: #2c5a7a;
+            font-weight: 500;
+            background: #eef2f5;
+            border-radius: 12px;
+            line-height: 1.3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        th {
+            background: #1f5068;
+            color: white;
+            padding: 12px 6px;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            border: 1px solid #2c6e8f;
+        }
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 8px 6px;
+            vertical-align: top;
+            background-color: #ffffff;
+        }
+        tr:nth-child(even) td {
+            background-color: #f9fbfd;
+        }
+        .note-final {
+            font-weight: bold;
+            background: #e6f7e6;
+            text-align: center;
+        }
+        .remarque {
+            font-size: 0.8rem;
+            color: #2d3e50;
+            line-height: 1.4;
+        }
+        .footer {
+            margin-top: 30px;
+            background: #eef2f5;
+            border-radius: 20px;
+            padding: 16px 20px;
+            font-size: 0.85rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-bottom: 20px;
+            background: #eef2fa;
+            border-radius: 28px;
+            padding: 12px 24px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 32px;
+            padding: 8px 18px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            min-width: 100px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1f5068;
+        }
+        hr {
+            margin: 20px 0;
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, #cbdde9, transparent);
+        }
+        @media (max-width: 900px) {
+            th, td { font-size: 0.75rem; padding: 6px 3px; }
+            .container { padding: 12px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>
+        🎬 Grille de correction – Contrôle PHP 1 (V2)
+        <small>Groupe DEV102 – 14 candidats </small>
+    </h1>
+    <div class="sub">
+        ✅ Barème : Ex1(2) | Ex2(5) | Ex3(4) | Ex4(5) | Ex5(7) | Ex6(5) | Ex7(8) | Ex8(4) → Total /40 → note /20<br>
+        🔄 Règles assouplies : nombre de films fixe (12) accepté, absence de saisies utilisateur acceptée (valeurs en dur).
+    </div>
+
+    <!-- Statistiques rapides -->
+    <div class="stats">
+        <div class="stat-card">📈 Moyenne <div class="stat-number">13,4</div>/20</div>
+        <div class="stat-card">🏆 Meilleure <div class="stat-number">19,5</div> (Walid)</div>
+        <div class="stat-card">⚠️ Plus faible <div class="stat-number">7,25</div> (Yassine)</div>
+        <div class="stat-card">📚 Médiane <div class="stat-number">~13,5</div></div>
+        <div class="stat-card">✅ ≥10/20 <div class="stat-number">12</div> stagiaires</div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Stagiaire</th><th>Ex1<br>(2)</th><th>Ex2<br>(5)</th><th>Ex3<br>(4)</th><th>Ex4<br>(5)</th><th>Ex5<br>(7)</th><th>Ex6<br>(5)</th><th>Ex7<br>(8)</th><th>Ex8<br>(4)</th><th>Total<br>/40</th><th>Note<br>/20</th><th>Remarques principales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 1. Abderrahim Meder -->
+            <tr><td>Abderrahim Meder</td><td>1.5</td><td>3</td><td>4</td><td>0.5</td><td>5.5</td><td>4</td><td>1.5</td><td>2.5</td><td>22.5</td><td class="note-final">11,25</td><td class="remarque">Ex4 logique remise fausse, ex7 très incomplet, ex8 extraction date erronée.</td></tr>
+            <!-- 2. Adam Oubella -->
+            <tr><td>Adam Oubella</td><td>2</td><td>5</td><td>4</td><td>3</td><td>7</td><td>5</td><td>6.5</td><td>4</td><td>36.5</td><td class="note-final">18,25</td><td class="remarque">Ex4 condition enfant inversée, ex7 strpos sans !==false, motif triangulaire absent.</td></tr>
+            <!-- 3. Anas Atbir -->
+            <tr><td>Anas Atbir</td><td>2</td><td>5</td><td>3.5</td><td>3.5</td><td>4</td><td>1.5</td><td>5</td><td>1.5</td><td>26</td><td class="note-final">13,0</td><td class="remarque">Ex3 ternaire imprécis, ex5 catalogue non affiché, ex6 comptage faux, ex8 indices date erronés.</td></tr>
+            <!-- 4. Ayoub Benouziza -->
+            <tr><td>Ayoub Benouziza</td><td>2</td><td>3.5</td><td>4</td><td>5</td><td>7</td><td>5</td><td>6.5</td><td>4</td><td>37</td><td class="note-final">18,5</td><td class="remarque">Ex2 TVA variable (au lieu constante), ex7 comptage consonnes ok, slug partiel.</td></tr>
+            <!-- 5. Brahim El Katib -->
+            <tr><td>Brahim El Katib</td><td>1.5</td><td>4.5</td><td>4</td><td>2</td><td>2</td><td>5</td><td>0</td><td>0</td><td>19</td><td class="note-final">9,5</td><td class="remarque">Ex4 logique partielle, ex5 erreurs syntaxe, ex7/ex8 absents. Revoir les bases.</td></tr>
+            <!-- 6. MESKYNY Zahra -->
+            <tr><td>MESKYNY Zahra</td><td>2</td><td>4.5</td><td>4</td><td>4</td><td>4</td><td>5</td><td>4.5</td><td>0</td><td>28</td><td class="note-final">14,0</td><td class="remarque">Ex4 saisies mal écrites mais logique correcte, ex7 comptage consonnes partiel, ex8 absent.</td></tr>
+            <!-- 7. Fatima Taki -->
+            <tr><td>Fatima Taki</td><td>2</td><td>4</td><td>4</td><td>4</td><td>4.5</td><td>4.5</td><td>2.5</td><td>3.5</td><td>29</td><td class="note-final">14,5</td><td class="remarque">Ex2 arrondi manquant, ex4 condition enfant inversée, ex5 points doublés au lieu triple.</td></tr>
+            <!-- 8. Marwa Sorouri -->
+            <tr><td>Marwa Sorouri</td><td>2</td><td>3.5</td><td>4</td><td>3</td><td>6</td><td>5</td><td>5</td><td>0</td><td>28.5</td><td class="note-final">14,25</td><td class="remarque">Ex2 calcul faux, ex4 orthographe "etudant", ex8 extraction totalement fausse.</td></tr>
+            <!-- 9. Mortada Habazane -->
+            <tr><td>Mortada Habazane</td><td>2</td><td>5</td><td>3</td><td>4</td><td>0</td><td>0</td><td>4</td><td>0</td><td>18</td><td class="note-final">9,0</td><td class="remarque">Ex3 cas stock===0 non géré, ex5/ex6 vides, ex7 slug incomplet, ex8 absent.</td></tr>
+            <!-- 10. Seif Eddine Choukri -->
+            <tr><td>Seif Eddine Choukri</td><td>1.5</td><td>5</td><td>4</td><td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>16.5</td><td class="note-final">8,25</td><td class="remarque">Ex4 logique enfant incomplète, ex5 tableau statique, ex7 partiel, ex8 extraction partielle.</td></tr>
+            <!-- 11. Sukayna Kharraz -->
+            <tr><td>Sukayna Kharraz</td><td>1.5</td><td>3.5</td><td>4</td><td>5</td><td>3.5</td><td>0</td><td>4.5</td><td>4</td><td>26</td><td class="note-final">13,0</td><td class="remarque">Ex2 titre erroné, ex5 opérateur ==! incorrect, ex6 erreurs variables, ex7 ucfirst au lieu ucwords.</td></tr>
+            <!-- 12. Walid Anftouak -->
+            <tr><td>Walid Anftouak</td><td>1.5</td><td>5</td><td>4</td><td>4.5</td><td>7</td><td>5</td><td>8</td><td>4</td><td>39</td><td class="note-final">19,5</td><td class="remarque">Très bonne copie. Ex1 commentaire manquant, ex5 nb fixe (accepté), ex7 parfait, ex8 parfait.</td></tr>
+            <!-- 13. Yassamine Bouhou -->
+            <tr><td>Yassamine Bouhou</td><td>2</td><td>5</td><td>4</td><td>5</td><td>7</td><td>5</td><td>4</td><td>2.5</td><td>34.5</td><td class="note-final">17,25</td><td class="remarque">Ex5 affichage paliers manquant, ex7 boucle infinie, ex8 extraction date avec indices erronés.</td></tr>
+            <!-- 14. Yassine Aznag -->
+            <tr><td>Yassine Aznag</td><td>2</td><td>4</td><td>4</td><td>2</td><td>0</td><td>0.5</td><td>2</td><td>0</td><td>14.5</td><td class="note-final">7,25</td><td class="remarque">Ex4 calculs de réduction faux (facteurs 0,3 au lieu 0,7), ex5/ex6 statiques, ex7/ex8 très incomplets.</td></tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <div class="footer">
+        <div><strong>📌 Synthèse des erreurs récurrentes (après ajustement)</strong><br>
+        • Calcul des réductions souvent faux (multiplication par 0,2 au lieu de 0,8) : ~40%<br>
+        • Absence de gestion des accents dans les slugs (Ex7) : ~60%<br>
+        • Extraction d’email avec indices fixes ou `substr` erronés (Ex8) : ~50%<br>
+        • Motif triangulaire inversé absent ou mal implémenté (Ex7) : ~70%<br>
+        • Absence de `number_format` pour les montants finaux (Ex2, Ex4) : ~30%</div>
+        <div><strong>🏅 Meilleure copie : Walid Anftouak (19,5/20)</strong><br>
+        ⚠️ Candidats en difficulté : Yassine Aznag, Brahim El Katib, Seif Eddine Choukri, Mortada → nécessitent reprise complète.</div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; font-size: 0.75rem; color: #5a6e7c;">
+        mohamed@goumih.com – 2026<br>
+    </div>
+</div>
+</body>
+</html>
